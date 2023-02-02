@@ -1,8 +1,9 @@
 import random
 import json
 
-print("Back tumbling skill values quiz!")
+print("Skill values quiz!")
 
+# return 1 = correct, 0 = wrong
 def skill_quiz (name, value):
 
     string_values = "ABCDEFGHIJK"
@@ -25,28 +26,19 @@ def skill_quiz (name, value):
     print("yes good job! slayyyy")
     if loops > 1:
         print(f"lmao it took you {loops} guesses, go read the code more")
+        return 0
     else:
-        print("wooo you got it first go, 10/10 slaying, FIG judge worthy")
+        print("good job first try")
+        return 1
     
-#skill_quiz("back layout", "A")
-#skill_quiz("triple double tuck (Biles II)", "J")
-#skill_quiz("back tuck full", "B")
-#skill_quiz("double tuck", "D")
-#skill_quiz("back lay full", "B")
-#skill_quiz("back 1.5 twist", "C")
-#skill quiz("double twist", "C")
 
-# omg wait is there a way to make it ask you a random one
 
-names_list = ["back layout", "back tuck full", "back lay full", "1.5 twist", "double twist", "2.5 twist", "triple twist", "3.5 twist", "double tuck", "double pike", "tucked full in", "piked full in", "double twisting double tuck (Silivas)", "triple twisting double tuck (Biles II)", "double layout", "double layout half out (Biles I)", "full twisting double layout", "double twisting double layout (Moors)", "whip", "whip half twist", "whip full twist"]
+#names_list = ["back layout", "back tuck full", "back lay full", "1.5 twist", "double twist", "2.5 twist", "triple twist", "3.5 twist", "double tuck", "double pike", "tucked full in", "piked full in", "double twisting double tuck (Silivas)", "triple twisting double tuck (Biles II)", "double layout", "double layout half out (Biles I)", "full twisting double layout", "double twisting double layout (Moors)", "whip", "whip half twist", "whip full twist"]
 
-values_list = ["A", "B", "B", "C", "C", "D", "E", "F", "D", "D", "E", "E", "H", "J", "F", "G", "H", "I", "A", "B", "C"]
+#values_list = ["A", "B", "B", "C", "C", "D", "E", "F", "D", "D", "E", "E", "H", "J", "F", "G", "H", "I", "A", "B", "C"]
 
-# yay both lists have 21 things in them that's a good sign (positions 0 to 20)
 
 # trying to dictionary - ise the cute json file
-
-
 all_skills_json = open('allSkills.json')
 # returns JSON object as 
 # a dictionary
@@ -54,28 +46,16 @@ skills_dict = json.load(all_skills_json)
 
 # dictionary time
 
-# skills_dict = {"Moors": "I",
-               # "Silivas": "H"}
+
 
 skill_names = list(skills_dict.keys())
 
+score = 0
+num_qs = 10
+for i in range(num_qs):
+    random_skill_num = random.randint(0, len(skill_names))
+    current_skill = skill_names[random_skill_num]
+    correct = skill_quiz(current_skill, skills_dict[current_skill])
+    score += correct
 
-num_qs = 0
-# ok let's try get it to ask more than one question
-while num_qs in range(2):
-    x = random.randint(0, 1)
-    current_skill = skill_names[num_qs]
-    skill_quiz(current_skill, skills_dict[current_skill])
-    num_qs += 1
-
-print("congrats on finishing the quiz! yay back tumbling")
-    
-    
-    
-
-    
-
-
-
-
-
+print(f"congrats on finishing the quiz! Your score was {score}/{num_qs}. Yay gymnastics!")

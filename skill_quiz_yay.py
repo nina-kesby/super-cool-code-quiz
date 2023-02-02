@@ -1,3 +1,6 @@
+import random
+import json
+
 print("Back tumbling skill values quiz!")
 
 def skill_quiz (name, value):
@@ -41,14 +44,21 @@ values_list = ["A", "B", "B", "C", "C", "D", "E", "F", "D", "D", "E", "E", "H", 
 
 # yay both lists have 21 things in them that's a good sign (positions 0 to 20)
 
+# trying to dictionary - ise the cute json file
+
+
+all_skills_json = open('allSkills.json')
+# returns JSON object as 
+# a dictionary
+skills_dict = json.load(all_skills_json)
+
 # dictionary time
 
-skills_dict = {"Moors": "I",
-               "Silivas": "H"}
+# skills_dict = {"Moors": "I",
+               # "Silivas": "H"}
 
 skill_names = list(skills_dict.keys())
 
-import random
 
 num_qs = 0
 # ok let's try get it to ask more than one question
@@ -60,6 +70,9 @@ while num_qs in range(2):
 
 print("congrats on finishing the quiz! yay back tumbling")
     
+    
+    
+
     
 
 

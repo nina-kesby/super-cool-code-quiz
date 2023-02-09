@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Solitreo&display=swap');
+
 h3{
   background-color: pink;
+  padding: 10px;
   font-family: 'Solitreo', cursive;
+  text-align: center;
 }
+
 h6{
   font-family: arial, sans-serif;
 }

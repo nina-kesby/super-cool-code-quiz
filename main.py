@@ -1,6 +1,6 @@
 import random
 import json
-from pyweb import pydom
+#from pyweb import pydom
 
 print("Skill values quiz!")
 

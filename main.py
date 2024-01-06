@@ -40,6 +40,7 @@ def skill_quiz (name, value):
 
 
 # trying to dictionary - ise the cute json file
+# using link from html file
 all_skills_json = open('allSkills.json')
 # returns JSON object as 
 # a dictionary

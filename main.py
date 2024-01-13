@@ -2,6 +2,7 @@ import random
 import json
 #from pyweb import pydom
 from js import prompt
+from js import console
 import asyncio
 
 print("Skill values quiz!")
@@ -15,26 +16,30 @@ def skill_quiz (name, value):
     lower_val, higher_val = string_values.split(value)
 
     loops = 1
-    answer = prompt(f"What is the skill value of a {name}? ").upper()
-    
+    Element('question').element.innerText = f"What is the skill value of a {name}? "
+    answer = Element('test-input').element.value
+    answer = answer.upper()
     while answer != value:
         if answer in lower_val and answer:
-            print("nah too low, it's way harder than that")
+            text = "nah too low, it's way harder than that"
         elif answer in higher_val and answer:
-            print ("no too high, it's not that hard jeez")
+            text = "no too high, it's not that hard jeez"
         else:
-            print("THAT'S NOT A SKILL VALUE YOU NOOB BE BETTER")
+            text = "THAT'S NOT A SKILL VALUE YOU NOOB BE BETTER"
             await asyncio.sleep(1)
-        answer = prompt(f"what is the skill value of a {name}? ").upper()
+        Element('test-output').element.innerText = text
+        #answer = prompt(f"what is the skill value of a {name}? ").upper()
         loops += 1
-    print("yes good job! slayyyy")
+    #print("yes good job!")
     if loops > 1:
-        print(f"lmao it took you {loops} guesses, go read the code more")
+        text = f"yes good job! but it took you {loops} guesses so go read the code more")
+        Element('test-output').element.innerText = text
         return 0
     else:
-        print("good job first try")
+        text = "good job! first try wowww"
+        Element('test-output').element.innerText = text
         return 1
-        await asyncio.sleep(1)
+        
     
 
 
@@ -57,7 +62,7 @@ skills_dict = json.load(all_skills_json)
 skill_names = list(skills_dict.keys())
 
 score = 0
-num_qs = 10
+num_qs = 1
 for i in range(num_qs):
     random_skill_num = random.randint(0, len(skill_names))
     current_skill = skill_names[random_skill_num]

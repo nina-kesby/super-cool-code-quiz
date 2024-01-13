@@ -11,6 +11,31 @@
         [[fetch]]
         files = ['allSkills.json']
     </py-config>
+
+      <div id="question"></div>
+      <input type="text" id="test-input"/>
+      <button id="submit-button" type="submit" pys-onClick="my_function">OK</button>
+      <div id="test-output"></div>
+     
+    <!--py-script>
+    from js import console
+     
+    def my_function(*args, **kwargs):
+     
+        #print('args:', args)
+        #print('kwargs:', kwargs)
+     
+        console.log(f'args: {args}')
+        console.log(f'kwargs: {kwargs}')
+        
+        text = Element('test-input').element.value
+     
+        #print('text:', text)
+        console.log(f'text: {text}')
+     
+        Element('test-output').element.innerText = text
+    </py-script-->
+     
     <section class="pyscript">
             <h1>Code code quiz 2022-2024</h1>
             <script type="py" src="./main.py" config="./pyscript.toml" terminal worker></script>

@@ -7,6 +7,7 @@ import asyncio
 
 print("Skill values quiz!")
 
+
 # return 1 = correct, 0 = wrong
 def skill_quiz (name, value):
 
@@ -16,7 +17,7 @@ def skill_quiz (name, value):
     lower_val, higher_val = string_values.split(value)
 
     loops = 1
-    Element('question').element.innerText = f"What is the skill value of a {name}? "
+    
     answer = Element('test-input').element.value
     answer = answer.upper()
     while answer != value:
@@ -66,6 +67,7 @@ num_qs = 1
 for i in range(num_qs):
     random_skill_num = random.randint(0, len(skill_names))
     current_skill = skill_names[random_skill_num]
+    Element('question').element.innerText = f"What is the skill value of a {current_skill}? "
     correct = skill_quiz(current_skill, skills_dict[current_skill])
     score += correct
 

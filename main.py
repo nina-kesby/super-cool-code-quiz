@@ -24,7 +24,7 @@ def skill_quiz (name, value):
             print ("no too high, it's not that hard jeez")
         else:
             print("THAT'S NOT A SKILL VALUE YOU NOOB BE BETTER")
-            await asyncio.sleep(.01)
+            await asyncio.sleep(1)
         answer = prompt(f"what is the skill value of a {name}? ").upper()
         loops += 1
     print("yes good job! slayyyy")
@@ -34,7 +34,7 @@ def skill_quiz (name, value):
     else:
         print("good job first try")
         return 1
-        await asyncio.sleep(.01)
+        await asyncio.sleep(1)
     
 
 

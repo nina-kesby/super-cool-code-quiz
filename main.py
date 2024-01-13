@@ -1,6 +1,7 @@
 import random
 import json
 #from pyweb import pydom
+from js import prompt
 
 print("Skill values quiz!")
 
@@ -13,7 +14,7 @@ def skill_quiz (name, value):
     lower_val, higher_val = string_values.split(value)
 
     loops = 1
-    answer = input(f"What is the skill value of a {name}? ").upper()
+    answer = prompt(f"What is the skill value of a {name}? ").upper()
     
     while answer != value:
         if answer in lower_val and answer:
@@ -22,7 +23,7 @@ def skill_quiz (name, value):
             print ("no too high, it's not that hard jeez")
         else:
             print("THAT'S NOT A SKILL VALUE YOU NOOB BE BETTER")
-        answer = input(f"what is the skill value of a {name}? ").upper()
+        answer = prompt(f"what is the skill value of a {name}? ").upper()
         loops += 1
     print("yes good job! slayyyy")
     if loops > 1:
